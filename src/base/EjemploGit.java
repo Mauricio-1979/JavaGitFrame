@@ -1,17 +1,26 @@
 package base;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class EjemploGit extends JFrame{
+public class EjemploGit extends JFrame implements ActionListener{
 	
 	JLabel titulo, nombre, telefono;
 	
 	JTextField txt_nombre, txt_telefono; 
 	
 	JButton btn_agregar;
+	
+	JTextArea txt_area;
+	
+	String texto;
 	
 	public EjemploGit() {
 		setLayout(null);
@@ -37,13 +46,26 @@ public class EjemploGit extends JFrame{
 		
 		btn_agregar = new JButton("AGREGAR");
 		btn_agregar.setBounds(105, 120, 100, 25);
+		btn_agregar.addActionListener(this);
 		add(btn_agregar);
 		
+		txt_area = new JTextArea();
+		txt_area.setBounds(30, 160, 390, 280);
+		add(txt_area);
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()== btn_agregar) {
+
+			texto += txt_nombre.getText()+" "+txt_telefono.getText();
+			txt_area.setText(texto);
+		}
 	}
 	
 	public static void main(String[] args) {
 		EjemploGit g=new EjemploGit();
-		g.setBounds(0, 0, 450, 400);
+		g.setBounds(0, 0, 450, 500);
 		g.setLocationRelativeTo(null);
 		g.setTitle("ESTA VENTANA");
 		g.setVisible(true);
