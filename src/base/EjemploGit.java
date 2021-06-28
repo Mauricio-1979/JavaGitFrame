@@ -1,5 +1,6 @@
 package base;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -9,6 +10,8 @@ public class EjemploGit extends JFrame{
 	JLabel titulo, nombre, telefono;
 	
 	JTextField txt_nombre, txt_telefono; 
+	
+	JButton btn_agregar;
 	
 	public EjemploGit() {
 		setLayout(null);
@@ -31,6 +34,10 @@ public class EjemploGit extends JFrame{
 		txt_telefono = new JTextField();
 		txt_telefono.setBounds(105, 90, 200, 25);
 		add(txt_telefono);
+		
+		btn_agregar = new JButton("AGREGAR");
+		btn_agregar.setBounds(105, 120, 100, 25);
+		add(btn_agregar);
 		
 	}
 	
